@@ -14,6 +14,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 Route::get('/payments', [PaymentController::class, 'index']);
+Route::delete('/payments/{id}', [PaymentController::class, 'destroy']);
+Route::post('/payments', [PaymentController::class, 'store']);
+
+Route::put('/payments/{id}', [PaymentController::class, 'update']);
+
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
